@@ -1,58 +1,59 @@
 # Evalexpr
 
-Programme en C permettant d’évaluer des expressions arithmétiques en notation infixée ou en notation polonaise inverse (RPN).
+A C program that evaluates arithmetic expressions using either infix notation or Reverse Polish Notation (RPN).
 
 ## Description
 
-Le programme lit une expression depuis l’entrée standard et affiche le résultat sur la sortie standard.
+The program reads an expression from standard input and prints the result to standard output.
 
-Exemple :
+Example:
 
 ```bash
 echo "1 + 1" | ./evalexpr
 2
 ```
 
-Le projet supporte :
-- notation classique (infixe)
-- notation RPN avec l’option `-rpn`
+The program supports:
+- standard (infix) notation
+- Reverse Polish Notation with the `-rpn` option
 
-## Fonctionnalités
+## Features
 
-### Opérations supportées
+### Supported operations
 
 - `+` : addition
-- `-` : soustraction
+- `-` : subtraction
 - `*` : multiplication
 - `/` : division
 - `%` : modulo
-- `^` : puissance
+- `^` : exponentiation
 
-### Notation infixe
+### Infix notation
 
-- gestion des priorités d’opérateurs
-- parenthèses `(` `)`
-- opérateurs unaires (`+` et `-`)
+- operator precedence handling
+- parentheses `(` `)`
+- unary operators (`+` and `-`)
 
-### Notation RPN
+### RPN notation
 
-Exemple :
+Example:
 
 ```bash
 echo "5 2 2 ^ 3 + *" | ./evalexpr -rpn
 35
 ```
 
-## Compilation
+## Build
 
 ```bash
 make
 ```
-Génère le binaire `evalexpr` à la racine :contentReference[oaicite:0]{index=0}  
 
-## Exécution
+This generates the `evalexpr` binary at the root of the project.
 
-### Infixe
+## Usage
+
+### Infix
 
 ```bash
 echo "5*(2^2+3)" | ./evalexpr
@@ -69,23 +70,24 @@ echo "1 1 +" | ./evalexpr -rpn
 ```bash
 make check
 ```
-Lance la testsuite (tests fonctionnels en shell) :contentReference[oaicite:1]{index=1}  
 
-## Nettoyage
+Runs the test suite (functional shell tests).
+
+## Clean
 
 ```bash
 make clean
 ```
 
-## Codes de retour
+## Exit codes
 
-- `0` : succès
-- `1` : erreur lexicale
-- `2` : erreur syntaxique
-- `3` : erreur arithmétique (ex : division par 0)
-- `4` : autre erreur (ex : mauvais argument)
+- `0` : success
+- `1` : lexical error
+- `2` : syntax error
+- `3` : arithmetic error (e.g. division by zero)
+- `4` : other errors (e.g. invalid arguments)
 
-## Structure
+## Project structure
 
 ```
 evalexpr/
@@ -96,9 +98,9 @@ evalexpr/
     └── ...
 ```
 
-## Contraintes
+## Constraints
 
-- Compilation avec :
+- Compilation flags:
   `-std=c99 -pedantic -Werror -Wall -Wextra -Wvla`
-- Programme avec `main` obligatoire
-- Lecture depuis stdin# Evalexpr
+- A `main` function is required
+- Input is read from standard input
